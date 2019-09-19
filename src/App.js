@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import './App.css';
 import { GoogleMap, withScriptjs, withGoogleMap, Marker, InfoWindow } from 'react-google-maps'
 import  * as parksData from './Data/parks.json'
+// import mapStyles from './mapStyles'
 
 function Map() {
   const [selectedPark, setSelectedPark] = useState(null);
   return (
     <>
     <GoogleMap
-      defaultZoom={10}
-      defaultCenter={{ lat:39.791408, lng:-104.967928 }}
+      defaultZoom={13}
+      defaultCenter={{ lat:39.727908, lng:-104.967928 }}
+
       >
       {parksData.parks.map(park => {
         return (
@@ -20,7 +22,8 @@ function Map() {
                setSelectedPark(park);
              }}
              icon={{
-               
+               url:'/park-svgrepo-com.svg',
+               scaledSize: new window.google.maps.Size(25, 25)
              }}
              />
 
